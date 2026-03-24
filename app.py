@@ -74,7 +74,7 @@ def analyze_xray(image: Image.Image):
         return None, f"Error: {str(e)}", ""
 
 
-with gr.Blocks(title="Chest X-ray Analyzer", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="Chest X-ray Analyzer") as demo:
     gr.Markdown("""
     # 🩻 Chest X-ray Analyzer
     **AI-assisted analysis using BiomedCLIP + BLIP-2 + Claude**
@@ -113,4 +113,4 @@ with gr.Blocks(title="Chest X-ray Analyzer", theme=gr.themes.Soft()) as demo:
 
 
 if __name__ == "__main__":
-    demo.launch(share=False)
+    demo.launch(share=True, theme=gr.themes.Soft())
