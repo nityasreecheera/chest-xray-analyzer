@@ -1,70 +1,41 @@
 """
-BLIP-2 image captioner for chest X-rays.
-Generates a free-text visual description of what the model sees.
+BLIP VQA image captioner for chest X-rays.
+Uses blip-vqa-base (CPU-friendly, ~1GB) instead of BLIP-2 (14GB).
+Generates free-text answers to targeted radiology questions.
 """
 
 import torch
 from PIL import Image
-from transformers import Blip2Processor, Blip2ForConditionalGeneration
-from config import BLIP2_MODEL
+from transformers import BlipProcessor, BlipForQuestionAnswering
+
+BLIP_VQA_MODEL = "Salesforce/blip-vqa-base"
+
+QUESTIONS = {
+    "findings":    "What abnormalities are visible in this chest X-ray?",
+    "lung_fields": "Describe the lung fields in this chest X-ray.",
+    "heart":       "Describe the heart size and shape in this chest X-ray.",
+    "impression":  "What is the overall impression of this chest X-ray?",
+}
 
 
 class ChestXrayCaptioner:
     def __init__(self, device: str = None):
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        print(f"Loading BLIP-2 on {self.device}...")
+        print(f"Loading BLIP VQA on {self.device}...")
+        self.processor = BlipProcessor.from_pretrained(BLIP_VQA_MODEL)
+        self.model = BlipForQuestionAnswering.from_pretrained(
+            BLIP_VQA_MODEL, torch_dtype=torch.float32
+        ).to(self.device).eval()
+        print("BLIP VQA loaded.")
 
-        self.processor = Blip2Processor.from_pretrained(BLIP2_MODEL)
-        # Load in 8-bit if on GPU to save memory, otherwise float32
-        load_kwargs = {}
-        if self.device == "cuda":
-            load_kwargs["load_in_8bit"] = True
-        else:
-            load_kwargs["torch_dtype"] = torch.float32
-
-        self.model = Blip2ForConditionalGeneration.from_pretrained(
-            BLIP2_MODEL, **load_kwargs
-        )
-        if self.device != "cuda":
-            self.model = self.model.to(self.device)
-
-        self.model.eval()
-        print("BLIP-2 loaded.")
-
-    def caption(self, image: Image.Image, prompt: str = None) -> str:
-        """
-        Generate a description of the X-ray image.
-        Optionally provide a directing prompt.
-        """
-        if prompt is None:
-            prompt = "Question: What abnormalities or findings are visible in this chest X-ray? Answer:"
-
-        inputs = self.processor(image, prompt, return_tensors="pt").to(self.device)
-
+    def ask(self, image: Image.Image, question: str) -> str:
+        inputs = self.processor(image, question, return_tensors="pt").to(self.device)
         with torch.no_grad():
-            output = self.model.generate(
-                **inputs,
-                max_new_tokens=200,
-                min_new_tokens=20,
-                do_sample=False,
-                num_beams=5,
-            )
-
-        caption = self.processor.decode(output[0], skip_special_tokens=True)
-        # Strip the prompt from the output if echoed back
-        if prompt in caption:
-            caption = caption.replace(prompt, "").strip()
-        return caption
+            out = self.model.generate(**inputs, max_new_tokens=80)
+        return self.processor.decode(out[0], skip_special_tokens=True).strip()
 
     def caption_with_questions(self, image: Image.Image) -> dict:
-        """Run multiple targeted questions for richer structured output."""
-        questions = {
-            "findings": "Question: What abnormalities are visible in this chest X-ray? Answer:",
-            "lung_fields": "Question: Describe the lung fields in this chest X-ray. Answer:",
-            "heart": "Question: Describe the heart size and shape in this chest X-ray. Answer:",
-            "impression": "Question: What is the overall impression of this chest X-ray? Answer:",
-        }
-        return {key: self.caption(image, prompt=q) for key, q in questions.items()}
+        return {key: self.ask(image, q) for key, q in QUESTIONS.items()}
 
 
 if __name__ == "__main__":

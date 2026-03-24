@@ -38,7 +38,7 @@ RESULTS_DIR = "evaluation/results"
 
 
 def load_labels(labels_csv: str) -> list[dict]:
-    with open(labels_csv, newline="") as f:
+    with open(labels_csv, newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 

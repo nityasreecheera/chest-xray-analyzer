@@ -1,0 +1,31 @@
+============================================================
+EVALUATION REPORT
+============================================================
+Total images evaluated : 7
+Top-1 Accuracy         : 42.9%
+Top-2 Accuracy         : 71.4%
+Macro Precision        : 33.3%
+Macro Recall           : 41.7%
+Macro F1               : 36.1%
+Low-confidence flags   : 0/7
+Mean conf (correct)    : 87.1%
+Mean conf (incorrect)  : 80.6%
+
+Per-class breakdown:
+  Condition                Prec    Rec     F1  Support
+  ------------------------------------------------------
+  pneumonia                0.0%   0.0%   0.0%        1
+  pleural effusion         0.0%   0.0%   0.0%        1
+  cardiomegaly            50.0% 100.0%  66.7%        1
+  atelectasis            100.0% 100.0% 100.0%        1
+  pneumothorax             0.0%   0.0%   0.0%        1
+  no finding              50.0%  50.0%  50.0%        2
+
+Confusion matrix (rows=true, cols=predicted):
+    pneumo   pleura   cardio   atelec   pneumo   no fin
+  pneumo         0        1        0        0        0        0
+  pleura         0        0        0        0        1        0
+  cardio         0        0        1        0        0        0
+  atelec         0        0        0        1        0        0
+  pneumo         0        0        0        0        0        1
+  no fin         0        0        1        0        0        1

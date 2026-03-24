@@ -1,0 +1,114 @@
+[
+  {
+    "filename": "eval_normal_01.jpg",
+    "true_label": "no finding",
+    "predicted_label": "no finding",
+    "top_score": 0.9999847412109375,
+    "all_scores": {
+      "pneumonia": 1.16346178913318e-07,
+      "pleural effusion": 5.233750854927166e-08,
+      "cardiomegaly": 3.1887550449027913e-06,
+      "atelectasis": 9.531819159747101e-06,
+      "pneumothorax": 2.4458454390696716e-06,
+      "no finding": 0.9999847412109375
+    },
+    "low_confidence": false,
+    "correct": true
+  },
+  {
+    "filename": "eval_pneumonia_01.jpg",
+    "true_label": "pneumonia",
+    "predicted_label": "pleural effusion",
+    "top_score": 0.9969171285629272,
+    "all_scores": {
+      "pneumonia": 2.2507034373120405e-05,
+      "pleural effusion": 0.9969171285629272,
+      "cardiomegaly": 3.251116709179769e-09,
+      "atelectasis": 0.0030163475312292576,
+      "pneumothorax": 4.2801530071301386e-05,
+      "no finding": 1.2430624565240578e-06
+    },
+    "low_confidence": false,
+    "correct": false
+  },
+  {
+    "filename": "eval_pneumothorax_01.jpg",
+    "true_label": "pneumothorax",
+    "predicted_label": "pneumothorax",
+    "top_score": 0.8978608250617981,
+    "all_scores": {
+      "pneumonia": 0.006666934117674828,
+      "pleural effusion": 4.881947097601369e-05,
+      "cardiomegaly": 9.723973562358879e-06,
+      "atelectasis": 0.012817121110856533,
+      "pneumothorax": 0.8978608250617981,
+      "no finding": 0.08259653300046921
+    },
+    "low_confidence": false,
+    "correct": true
+  },
+  {
+    "filename": "eval_atelectasis_01.jpg",
+    "true_label": "atelectasis",
+    "predicted_label": "atelectasis",
+    "top_score": 0.8910975456237793,
+    "all_scores": {
+      "pneumonia": 0.0003362491843290627,
+      "pleural effusion": 0.0016266099410131574,
+      "cardiomegaly": 1.0768529179472353e-08,
+      "atelectasis": 0.8910975456237793,
+      "pneumothorax": 0.002892150776460767,
+      "no finding": 0.10404735058546066
+    },
+    "low_confidence": false,
+    "correct": true
+  },
+  {
+    "filename": "eval_pleural_effusion_01.jpg",
+    "true_label": "pleural effusion",
+    "predicted_label": "pneumothorax",
+    "top_score": 0.7679327130317688,
+    "all_scores": {
+      "pneumonia": 0.10371135920286179,
+      "pleural effusion": 0.005392512772232294,
+      "cardiomegaly": 3.591992208384909e-05,
+      "atelectasis": 0.1229274794459343,
+      "pneumothorax": 0.7679327130317688,
+      "no finding": 5.020440596581466e-08
+    },
+    "low_confidence": false,
+    "correct": false
+  },
+  {
+    "filename": "eval_normal_02.png",
+    "true_label": "no finding",
+    "predicted_label": "no finding",
+    "top_score": 0.9620241522789001,
+    "all_scores": {
+      "pneumonia": 9.898541065922473e-06,
+      "pleural effusion": 5.4249801905825734e-05,
+      "cardiomegaly": 0.03457843139767647,
+      "atelectasis": 0.0033075225073844194,
+      "pneumothorax": 2.5784349418245256e-05,
+      "no finding": 0.9620241522789001
+    },
+    "low_confidence": false,
+    "correct": true
+  },
+  {
+    "filename": "eval_cardiomegaly_01.jpg",
+    "true_label": "cardiomegaly",
+    "predicted_label": "cardiomegaly",
+    "top_score": 0.9538242816925049,
+    "all_scores": {
+      "pneumonia": 0.0003315429203212261,
+      "pleural effusion": 0.006015206221491098,
+      "cardiomegaly": 0.9538242816925049,
+      "atelectasis": 0.010370848700404167,
+      "pneumothorax": 0.0033872374333441257,
+      "no finding": 0.026070820167660713
+    },
+    "low_confidence": false,
+    "correct": true
+  }
+]

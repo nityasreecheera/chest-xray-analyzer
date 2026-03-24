@@ -20,8 +20,8 @@ CONDITION_PROMPTS = {
 # BiomedCLIP model (Microsoft, trained on PubMed + MIMIC)
 BIOMED_CLIP_MODEL = "hf-hub:microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
 
-# BLIP-2 model
-BLIP2_MODEL = "Salesforce/blip2-opt-2.7b"
+# BLIP VQA model (CPU-friendly base model)
+BLIP_VQA_MODEL = "Salesforce/blip-vqa-base"
 
 # Confidence threshold below which we flag uncertainty
 CONFIDENCE_THRESHOLD = 0.3

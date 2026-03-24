@@ -1,0 +1,128 @@
+[
+  {
+    "filename": "eval_normal_01.jpg",
+    "true_label": "no finding",
+    "predicted_label": "no finding",
+    "top_score": 0.9999988079071045,
+    "all_scores": {
+      "pneumonia": 2.5463437580697246e-08,
+      "pleural effusion": 6.430470822493817e-09,
+      "cardiomegaly": 1.6683421222296602e-07,
+      "atelectasis": 7.43283976589737e-07,
+      "pneumothorax": 3.2579742992311367e-07,
+      "no finding": 0.9999988079071045
+    },
+    "low_confidence": false,
+    "correct": true,
+    "source": "Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
+    "notes": "Normal PA chest radiograph, clear lung fields"
+  },
+  {
+    "filename": "eval_pneumonia_01.jpg",
+    "true_label": "pneumonia",
+    "predicted_label": "pleural effusion",
+    "top_score": 0.9969171285629272,
+    "all_scores": {
+      "pneumonia": 2.2507034373120405e-05,
+      "pleural effusion": 0.9969171285629272,
+      "cardiomegaly": 3.251116709179769e-09,
+      "atelectasis": 0.0030163475312292576,
+      "pneumothorax": 4.2801530071301386e-05,
+      "no finding": 1.2430624565240578e-06
+    },
+    "low_confidence": false,
+    "correct": false,
+    "source": "Pneumonia_x-ray.jpg",
+    "notes": "Right lower lobe consolidation consistent with pneumonia"
+  },
+  {
+    "filename": "eval_pneumothorax_01.jpg",
+    "true_label": "pneumothorax",
+    "predicted_label": "no finding",
+    "top_score": 0.647968590259552,
+    "all_scores": {
+      "pneumonia": 0.009379951283335686,
+      "pleural effusion": 0.0001581891265232116,
+      "cardiomegaly": 0.0001782500621629879,
+      "atelectasis": 0.04360022023320198,
+      "pneumothorax": 0.2987147867679596,
+      "no finding": 0.647968590259552
+    },
+    "low_confidence": false,
+    "correct": false,
+    "source": "Pneumothorax_CXR.jpg",
+    "notes": "Pneumothorax on chest X-ray"
+  },
+  {
+    "filename": "eval_atelectasis_01.jpg",
+    "true_label": "atelectasis",
+    "predicted_label": "atelectasis",
+    "top_score": 0.8910975456237793,
+    "all_scores": {
+      "pneumonia": 0.0003362491843290627,
+      "pleural effusion": 0.0016266099410131574,
+      "cardiomegaly": 1.0768529179472353e-08,
+      "atelectasis": 0.8910975456237793,
+      "pneumothorax": 0.002892150776460767,
+      "no finding": 0.10404735058546066
+    },
+    "low_confidence": false,
+    "correct": true,
+    "source": "Atelectasis_Normal_vs_Affected_Airway.jpg",
+    "notes": "Atelectasis diagram showing affected airway"
+  },
+  {
+    "filename": "eval_pleural_effusion_01.jpg",
+    "true_label": "pleural effusion",
+    "predicted_label": "pneumothorax",
+    "top_score": 0.7328978180885315,
+    "all_scores": {
+      "pneumonia": 0.04500985145568848,
+      "pleural effusion": 0.006893248297274113,
+      "cardiomegaly": 4.53267311968375e-05,
+      "atelectasis": 0.2151535004377365,
+      "pneumothorax": 0.7328978180885315,
+      "no finding": 1.9370857273770525e-07
+    },
+    "low_confidence": false,
+    "correct": false,
+    "source": "Pleural_effusion.jpg",
+    "notes": "Pleural effusion on chest X-ray"
+  },
+  {
+    "filename": "eval_normal_02.png",
+    "true_label": "no finding",
+    "predicted_label": "cardiomegaly",
+    "top_score": 0.8473150730133057,
+    "all_scores": {
+      "pneumonia": 5.898781637370121e-06,
+      "pleural effusion": 8.982840881799348e-06,
+      "cardiomegaly": 0.8473150730133057,
+      "atelectasis": 0.000427260558353737,
+      "pneumothorax": 3.894330802722834e-06,
+      "no finding": 0.15223893523216248
+    },
+    "low_confidence": false,
+    "correct": false,
+    "source": "OpenI",
+    "notes": "Normal chest, OpenI Indiana University CXR dataset"
+  },
+  {
+    "filename": "eval_cardiomegaly_01.jpg",
+    "true_label": "cardiomegaly",
+    "predicted_label": "cardiomegaly",
+    "top_score": 0.7208428382873535,
+    "all_scores": {
+      "pneumonia": 0.00017982501594815403,
+      "pleural effusion": 0.00807566661387682,
+      "cardiomegaly": 0.7208428382873535,
+      "atelectasis": 0.023438334465026855,
+      "pneumothorax": 0.003000037744641304,
+      "no finding": 0.24446329474449158
+    },
+    "low_confidence": false,
+    "correct": true,
+    "source": "Cardiomegalia.JPG",
+    "notes": "Cardiomegaly chest X-ray"
+  }
+]
