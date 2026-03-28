@@ -11,10 +11,12 @@ from transformers import BlipProcessor, BlipForQuestionAnswering
 BLIP_VQA_MODEL = "Salesforce/blip-vqa-base"
 
 QUESTIONS = {
-    "findings":    "What abnormalities are visible in this chest X-ray?",
-    "lung_fields": "Describe the lung fields in this chest X-ray.",
-    "heart":       "Describe the heart size and shape in this chest X-ray.",
-    "impression":  "What is the overall impression of this chest X-ray?",
+    "findings":          "What abnormalities are visible in this chest X-ray?",
+    "lung_fields":       "Describe the lung fields in this chest X-ray.",
+    "heart":             "Describe the heart size and shape in this chest X-ray.",
+    "pleura":            "Is there any pleural effusion or thickening visible?",
+    "nodules_masses":    "Are there any nodules, masses, or infiltrates visible?",
+    "impression":        "What is the overall impression of this chest X-ray?",
 }
 
 

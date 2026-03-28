@@ -227,7 +227,7 @@ with gr.Blocks(title="Chest X-ray Analyzer") as demo:
     gr.Markdown(
         """
 # 🩻 Chest X-ray Analyzer
-**AI-assisted analysis — BiomedCLIP &nbsp;·&nbsp; BLIP VQA &nbsp;·&nbsp; Claude**
+**AI-assisted analysis — BiomedCLIP &nbsp;·&nbsp; BLIP VQA &nbsp;·&nbsp; 15 NIH conditions**
 
 > ⚠️ **Disclaimer**: For research and educational purposes only.
 > This is NOT a medical device and must NOT be used for clinical diagnosis.
