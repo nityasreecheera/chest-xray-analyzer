@@ -155,6 +155,48 @@ EVAL_SAMPLES = [
         "label": "consolidation",
         "notes": "Lobar pneumonia with consolidation",
     },
+    # ── Hernia ────────────────────────────────────────────────────
+    {
+        "filename": "eval_hernia_01.jpg",
+        "commons_file": "Diaphragmatic_hernia.jpg",
+        "label": "hernia",
+        "notes": "Diaphragmatic hernia on chest X-ray",
+    },
+    # ── Aortic aneurysm ───────────────────────────────────────────
+    {
+        "filename": "eval_aortic_aneurysm_01.jpg",
+        "commons_file": "Aortic_aneurysm.jpg",
+        "label": "aortic aneurysm",
+        "notes": "Aortic aneurysm — widened mediastinum",
+    },
+    # ── Rib fractures ─────────────────────────────────────────────
+    {
+        "filename": "eval_rib_fractures_01.jpg",
+        "commons_file": "Fractured_ribs.jpg",
+        "label": "rib fractures",
+        "notes": "Fractured ribs on chest X-ray",
+    },
+    # ── Spine abnormalities ───────────────────────────────────────
+    {
+        "filename": "eval_spine_abnormalities_01.jpg",
+        "commons_file": "Vertebral_osteoporosis.jpg",
+        "label": "spine abnormalities",
+        "notes": "Vertebral osteoporosis / compression fractures",
+    },
+    # ── Lung abscess ──────────────────────────────────────────────
+    {
+        "filename": "eval_lung_abscess_01.jpg",
+        "commons_file": "Lung_abscess.jpg",
+        "label": "lung abscess",
+        "notes": "Lung abscess with cavitary lesion",
+    },
+    # ── Pleural thickening ────────────────────────────────────────
+    {
+        "filename": "eval_pleural_thickening_01.jpg",
+        "commons_file": "Asbestosis.jpg",
+        "label": "pleural thickening",
+        "notes": "Asbestosis with pleural thickening and plaques",
+    },
 ]
 
 
