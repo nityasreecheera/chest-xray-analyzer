@@ -197,6 +197,20 @@ EVAL_SAMPLES = [
         "label": "pleural thickening",
         "notes": "Asbestosis with pleural thickening and plaques",
     },
+    # ── Mass ──────────────────────────────────────────────────────
+    {
+        "filename": "eval_mass_01.jpg",
+        "commons_file": "Lung_cancer.jpg",
+        "label": "mass",
+        "notes": "Lung cancer — pulmonary mass on chest X-ray",
+    },
+    # ── Emphysema ─────────────────────────────────────────────────
+    {
+        "filename": "eval_emphysema_01.jpg",
+        "commons_file": "Subcutaneous_emphysema_chest.jpg",
+        "label": "emphysema",
+        "notes": "Subcutaneous emphysema / soft tissue air on chest X-ray",
+    },
 ]
 
 
