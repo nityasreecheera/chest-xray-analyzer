@@ -10,25 +10,35 @@ An AI-assisted chest X-ray analysis tool using **BiomedCLIP** for zero-shot clas
 
 Given a chest X-ray image, the pipeline:
 
-1. **BiomedCLIP** (Microsoft) — classifies the image against 6 conditions using a CLIP model trained on 15M biomedical image-text pairs
-2. **BLIP VQA** (Salesforce) — answers 4 targeted medical questions about the image (opacity, effusion, cardiomegaly, pneumothorax)
+1. **BiomedCLIP** (Microsoft) — zero-shot classification against 25 conditions using a CLIP model trained on 15M biomedical image-text pairs
+2. **BLIP VQA** (Salesforce) — answers 6 targeted medical questions about the image (findings, lung fields, heart, pleura, nodules/masses, impression)
 3. **Report synthesis** — combines scores and visual descriptions into a structured radiology-style report (Findings / Impression / Recommendation)
 
-### Detectable conditions
+### Detectable conditions (25 total)
 
-- Pneumonia
-- Pleural Effusion
-- Cardiomegaly
-- Atelectasis
-- Pneumothorax
-- No Finding
+**NIH ChestX-ray14 (14 conditions)**
+| | | |
+|---|---|---|
+| Atelectasis | Cardiomegaly | Consolidation |
+| Edema | Pleural Effusion | Emphysema |
+| Fibrosis | Hernia | Infiltration |
+| Mass | Nodule | Pleural Thickening |
+| Pneumonia | Pneumothorax | |
+
+**Extended conditions (10 + normal)**
+| | | |
+|---|---|---|
+| Tuberculosis | Lung Abscess | Heart Failure |
+| Aortic Aneurysm | Pericardial Effusion | Rib Fractures |
+| Spine Abnormalities | Scoliosis | Mediastinal Mass |
+| Hilar Enlargement | No Finding | |
 
 ---
 
 ## Setup
 
 ```bash
-git clone https://github.com/your-username/chest-xray-analyzer
+git clone https://github.com/nityasreecheera/chest-xray-analyzer
 cd chest-xray-analyzer
 
 python -m venv .venv
@@ -50,21 +60,50 @@ Then open [http://127.0.0.1:7860](http://127.0.0.1:7860) in your browser.
 
 ---
 
+## Evaluation
+
+The eval set contains **71 labeled chest X-rays** from two sources:
+
+- **Wikimedia Commons** — 26 images across 19 conditions
+- **NIH ChestX-ray14** — 45 images across 15 conditions (via Kaggle)
+
+### Run evaluation
+
+```bash
+python evaluation/evaluate.py --no-download
+```
+
+### Download additional NIH images
+
+Requires a [Kaggle API token](https://www.kaggle.com/settings) saved to `~/.kaggle/kaggle.json`.
+
+```bash
+python evaluation/download_nih_data.py
+```
+
+---
+
 ## Project structure
 
 ```
 chest-xray-analyzer/
-├── app.py                  # Gradio UI
-├── config.py               # Model names, conditions, thresholds
+├── app.py                        # Gradio UI (dark theme)
+├── config.py                     # 25 conditions + BiomedCLIP prompts
 ├── models/
-│   ├── clip_classifier.py  # BiomedCLIP zero-shot classifier
-│   └── blip_captioner.py   # BLIP VQA visual descriptions
+│   ├── clip_classifier.py        # BiomedCLIP zero-shot classifier
+│   └── blip_captioner.py         # BLIP VQA (6 medical questions)
 ├── pipeline/
-│   └── report_generator.py # Orchestrates full pipeline
+│   └── report_generator.py       # Orchestrates full pipeline
 ├── evaluation/
-│   └── evaluate.py         # Evaluation metrics and plots
-├── notebooks/              # Jupyter notebooks for exploration
-└── data/                   # Sample and evaluation images
+│   ├── evaluate.py               # Metrics + confusion matrix + plots
+│   ├── download_eval_data.py     # Wikimedia Commons image downloader
+│   ├── download_nih_data.py      # NIH ChestX-ray14 downloader (Kaggle)
+│   ├── metrics.py                # Precision / recall / F1
+│   └── visualize.py              # Plot generation
+├── notebooks/                    # Jupyter notebooks (01–04)
+└── data/
+    ├── eval/                     # 71 labeled eval images + labels.csv
+    └── nih_raw/                  # Raw NIH downloads
 ```
 
 ---
