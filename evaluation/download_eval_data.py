@@ -21,6 +21,7 @@ USER_AGENT = "chest-xray-analyzer/1.0 (research project; educational use)"
 
 # Map: local filename → (Commons file name, label, notes)
 EVAL_SAMPLES = [
+    # ── Normal ────────────────────────────────────────────────────
     {
         "filename": "eval_normal_01.jpg",
         "commons_file": "Normal_posteroanterior_(PA)_chest_radiograph_(X-ray).jpg",
@@ -28,29 +29,46 @@ EVAL_SAMPLES = [
         "notes": "Normal PA chest radiograph, clear lung fields",
     },
     {
+        "filename": "eval_normal_02.png",
+        "direct_url": "https://openi.nlm.nih.gov/imgs/512/1/1/CXR1_1_IM-0001-4001.png",
+        "label": "no finding",
+        "notes": "Normal chest, OpenI Indiana University CXR dataset",
+    },
+    {
+        "filename": "eval_normal_03.png",
+        "direct_url": "https://openi.nlm.nih.gov/imgs/512/2/2/CXR2_IM-0652-1001.png",
+        "label": "no finding",
+        "notes": "Normal chest, OpenI Indiana University CXR dataset",
+    },
+    # ── Pneumonia ─────────────────────────────────────────────────
+    {
         "filename": "eval_pneumonia_01.jpg",
         "commons_file": "Pneumonia_x-ray.jpg",
         "label": "pneumonia",
         "notes": "Right lower lobe consolidation consistent with pneumonia",
     },
+    # ── Pneumothorax ──────────────────────────────────────────────
     {
         "filename": "eval_pneumothorax_01.jpg",
         "commons_file": "Pneumothorax_CXR.jpg",
         "label": "pneumothorax",
         "notes": "Pneumothorax on chest X-ray",
     },
-    {
-        "filename": "eval_atelectasis_01.jpg",
-        "commons_file": "Atelectasis_Normal_vs_Affected_Airway.jpg",
-        "label": "atelectasis",
-        "notes": "Atelectasis diagram showing affected airway",
-    },
+    # ── Pleural effusion ──────────────────────────────────────────
     {
         "filename": "eval_pleural_effusion_01.jpg",
         "commons_file": "Pleural_effusion.jpg",
         "label": "pleural effusion",
         "notes": "Pleural effusion on chest X-ray",
     },
+    # ── Atelectasis ───────────────────────────────────────────────
+    {
+        "filename": "eval_atelectasis_01.jpg",
+        "commons_file": "Atelectasis_Normal_vs_Affected_Airway.jpg",
+        "label": "atelectasis",
+        "notes": "Atelectasis diagram showing affected airway",
+    },
+    # ── Cardiomegaly ──────────────────────────────────────────────
     {
         "filename": "eval_cardiomegaly_01.jpg",
         "commons_file": "Cardiomegally.PNG",
@@ -63,22 +81,92 @@ EVAL_SAMPLES = [
         "label": "cardiomegaly",
         "notes": "Cardiomegaly chest X-ray",
     },
+    # ── Tuberculosis ──────────────────────────────────────────────
     {
-        "filename": "eval_normal_02.png",
-        "direct_url": "https://openi.nlm.nih.gov/imgs/512/1/1/CXR1_1_IM-0001-4001.png",
-        "label": "no finding",
-        "notes": "Normal chest, OpenI Indiana University CXR dataset",
+        "filename": "eval_tuberculosis_01.jpg",
+        "commons_file": "Tuberculosis-x-ray-1.jpg",
+        "label": "tuberculosis",
+        "notes": "Pulmonary tuberculosis with upper lobe involvement",
+    },
+    {
+        "filename": "eval_tuberculosis_02.jpg",
+        "commons_file": "Chest_radiograph_of_miliary_tuberculosis_1.jpg",
+        "label": "tuberculosis",
+        "notes": "Miliary tuberculosis — diffuse nodular pattern",
+    },
+    {
+        "filename": "eval_tuberculosis_03.jpg",
+        "commons_file": "Chest_radiograph_of_miliary_tuberculosis_2.jpg",
+        "label": "tuberculosis",
+        "notes": "Miliary tuberculosis — second example",
+    },
+    # ── Pulmonary edema ───────────────────────────────────────────
+    {
+        "filename": "eval_edema_01.jpg",
+        "commons_file": "Pulmonary_oedema.jpg",
+        "label": "edema",
+        "notes": "Pulmonary oedema / edema",
+    },
+    {
+        "filename": "eval_edema_02.jpg",
+        "commons_file": "Pulmonary_edema.jpg",
+        "label": "edema",
+        "notes": "Pulmonary edema — bilateral opacities",
+    },
+    # ── Fibrosis ──────────────────────────────────────────────────
+    {
+        "filename": "eval_fibrosis_01.jpg",
+        "commons_file": "Honeycomb_lung.jpg",
+        "label": "fibrosis",
+        "notes": "Honeycomb lung — end-stage pulmonary fibrosis",
+    },
+    # ── Pericardial effusion ──────────────────────────────────────
+    {
+        "filename": "eval_pericardial_effusion_01.jpg",
+        "commons_file": "Pericardial_effusion.jpg",
+        "label": "pericardial effusion",
+        "notes": "Pericardial effusion — globular cardiac silhouette",
+    },
+    # ── Scoliosis ─────────────────────────────────────────────────
+    {
+        "filename": "eval_scoliosis_01.jpg",
+        "commons_file": "Scoliosis.jpg",
+        "label": "scoliosis",
+        "notes": "Scoliosis — lateral spinal curvature",
+    },
+    # ── Hilar enlargement ─────────────────────────────────────────
+    {
+        "filename": "eval_hilar_enlargement_01.jpg",
+        "commons_file": "Sarcoidosis.jpg",
+        "label": "hilar enlargement",
+        "notes": "Sarcoidosis with bilateral hilar lymphadenopathy",
+    },
+    # ── Mediastinal mass ──────────────────────────────────────────
+    {
+        "filename": "eval_mediastinal_mass_01.jpg",
+        "commons_file": "Chest_radiograph_showing_fibrous_tumor_of_the_pleura.jpg",
+        "label": "mediastinal mass",
+        "notes": "Fibrous tumor of the pleura / mediastinal mass",
+    },
+    # ── Consolidation ─────────────────────────────────────────────
+    {
+        "filename": "eval_consolidation_01.jpg",
+        "commons_file": "Lobar_pneumonia.jpg",
+        "label": "consolidation",
+        "notes": "Lobar pneumonia with consolidation",
     },
 ]
 
 
 def resolve_commons_url(commons_filename: str) -> str | None:
-    """Use Wikimedia Commons API to get direct image URL for a File: name."""
+    """Use Wikimedia Commons API to get 800px thumbnail URL for a File: name.
+    Wikimedia rate-limits full-res downloads; thumbnails are explicitly allowed."""
     params = {
         "action": "query",
         "titles": f"File:{commons_filename}",
         "prop": "imageinfo",
-        "iiprop": "url",
+        "iiprop": "url|thumburl",
+        "iiurlwidth": "800",
         "format": "json",
     }
     url = COMMONS_API + "?" + urllib.parse.urlencode(params)
@@ -90,7 +178,8 @@ def resolve_commons_url(commons_filename: str) -> str | None:
         for page in pages.values():
             infos = page.get("imageinfo", [])
             if infos:
-                return infos[0]["url"]
+                # Prefer thumbnail URL; fall back to full URL
+                return infos[0].get("thumburl") or infos[0].get("url")
     except (urllib.error.URLError, OSError, json.JSONDecodeError) as e:
         print(f"    API error for {commons_filename}: {e}")
     return None
@@ -150,7 +239,7 @@ def download_eval_set(output_dir: str = "data/eval") -> str:
         else:
             print("  Skipped")
 
-        time.sleep(1)  # Be polite to Wikimedia servers
+        time.sleep(3)  # Be polite to Wikimedia servers
 
     with open(labels_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["filename", "label", "source", "notes"])
